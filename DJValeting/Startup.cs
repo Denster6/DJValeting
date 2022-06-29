@@ -31,8 +31,9 @@ namespace DJValeting
             services.AddDbContext<AppDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc(setupAction => 
-                setupAction.ReturnHttpNotAcceptable = true    
+            services.AddMvc(setupAction =>
+                setupAction.ReturnHttpNotAcceptable = true
+
             );
 
             services.AddSwaggerGen(options =>
@@ -64,16 +65,18 @@ namespace DJValeting
             {
                 setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json",
                     "Library API");
+                setupAction.RoutePrefix = "";
             });
             app.UseStaticFiles();
-            app.UseRouting();
+           // app.UseMvc();
+           // app.UseRouting();
 
-            app.UseAuthorization();
+          //  app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapRazorPages();
+            //});
         }
     }
 }
