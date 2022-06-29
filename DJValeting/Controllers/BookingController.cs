@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DJValeting.Controllers
 {
-    [Route("api/v{version:apiVersion}/templates")]
+    [Route("api/v{version:apiVersion}/booking")]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ApiController]
